@@ -19,7 +19,19 @@ services.AddSwaggerGen(c =>
 });
 ```
 
-###### Metodo Configure:
+###### Metodo Configure para todos os ambientes:
+```
+app.UseSwagger();
+
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("./swagger/v1/swagger.json", "My API V1");
+    c.RoutePrefix = string.Empty;
+});
+
+```
+
+###### Metodo Configure somente para ambiente de desenvolvimento:
 ```
 app.UseSwagger();
 
